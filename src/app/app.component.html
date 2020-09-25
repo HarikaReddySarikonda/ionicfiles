@@ -1,29 +1,29 @@
-<ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+<!-- <app-folder></app-folder> -->
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+<input #ngModel>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+<input name="email" id="email" type="email" required placeholder="Email address"
+   #email="ngModel" [(ngModel)]="emailyz" class="form-control col-xs-4 col-sm-4 col-md-4 col-lg-4 normal"
+     [class.is-invalid]="email.touched && email.invalid"
+     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+ <small class="text-danger" *ngIf="email.errors?.required && email.touched "> *email is required</small> 
+<small class="text-danger" *ngIf="email.errors?.pattern "> *email is invalid</small>  
+ <table class="table"> 
+  <tbody>
+      <tr> <th>Invoice ID:</th> <th> <input class="form-control col-md-4" name="id" #id="ngModel" [(ngModel)]="invoice.invoiceID"></th> </tr>
+      <tr> <th>Client Name:</th><th> <input class="form-control col-md-4" name="name" #name="ngModel" [(ngModel)]="invoice.invoiceID"></th> </tr>
+      <tr> <th>Date:</th>       <th> <input class="form-control col-md-4" name="date" #date="ngModel" [(ngModel)]="invoice.date"></th> </tr>
+      <tr> <th>Due Date::</th>  <th> <input class="form-control col-md-4"  name="dueDate" #dueDate="ngModel" [(ngModel)]="invoice.dueDate"></th> </tr>
+      <tr> <th>Total:</th>      <th> <input class="form-control col-md-4"  name="total" #total="ngModel" [(ngModel)]="invoice.total"></th> </tr>
+  </tbody>  
+</table> 
 
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
-</ion-app>
+
+<button (click)="func()">clck</button>
+
+<app-folder></app-folder>
+
+<app-folder></app-folder>
